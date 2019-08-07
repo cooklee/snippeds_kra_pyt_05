@@ -1,0 +1,6 @@
+
+<ul>
+{% for movie in movies %}
+    <li><a href="/movie_detail/{{movie.id}}">{{ movie.title }}</a></li>
+{% endfor %}
+</ul>

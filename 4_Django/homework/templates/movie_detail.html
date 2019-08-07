@@ -1,0 +1,10 @@
+<strong>Tytuł: {{ movie.title }}</strong><br>
+scenariusz: {{ movie.screenplay.first_name }} {{ movie.screenplay.last_name }}<br>
+rezyser: {{ movie.director.first_name }} {{ movie.director.last_name }}<br>
+gatunek:
+{%   for genre in movie.genre.all %}
+    {{ genre.name }}<br>
+{% endfor %}
+{% for item in sttaring %}
+    {{ item.actor.first_name }} {{ item.actor.last_name }} w roli {{ item.role }}
+{% endfor %}

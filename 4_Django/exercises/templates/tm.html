@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th></th>
+        {% for item in tm.0 %}
+            <th>{{ item }}</th>
+        {% endfor %}
+    </tr>
+    {% for line in tm %}
+        <tr>
+            <th>{{ line.0 }}</th>
+            {% for item in line %}
+                <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>

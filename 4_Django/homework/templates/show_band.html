@@ -1,0 +1,12 @@
+nazwa:{{ band.name }}<br>
+aktywny:{{ band.still_active }}<br>
+rok założenia:{{ band.year }}<br>
+gatunek: {{ band.get_genre_display }}<br>
+
+
+{% for album in band.album_set.all %}
+    -----------------<br>
+    {{ album.title }}<br>
+    {{ album.year }}<br>
+    {{ album.get_rating_display }}<br>
+{% endfor %}
