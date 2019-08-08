@@ -1,0 +1,14 @@
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ movie.id }}">
+    <input type="text" name="title" value="{{ movie.title }}">
+    <input type="number" name="year" value="{{ movie.year }}">
+    <select multiple name="genre">
+        {% for g in genre %}
+            <option value="{{ g.id }}"
+                    {% if g in movie.genre.all %}selected{% endif %}>
+                {{ g.name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">zmień</button>
+</form>

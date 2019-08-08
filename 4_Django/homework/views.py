@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from homework.models import Movie, PersonMovie, Person
+from homework.models import Movie, PersonMovie, Person, Genre
 # Create your views here.
 
 def show_movies(request):
@@ -20,3 +20,17 @@ def edit_person(request, id):
         person.last_name = request.POST['last_name']
         person.save()
     return render(request, 'edit_person.html', {'person': person})
+
+def edit_movie(request, id):
+    id = request.POST.get('id', id)
+    movie = Movie.objects.get(id=id)
+    genre  = Genre.objects.all()
+
+    if request.method == "POST":
+        selected = request.POST.getlist('genre')
+        movie.title = request.POST['title']
+        movie.year = request.POST['year']
+        g = Genre.objects.filter(id__in=selected)
+        movie.genre.set(g)
+        movie.save()
+    return render(request, 'edit_movie.html', {'movie': movie, 'genre':genre})

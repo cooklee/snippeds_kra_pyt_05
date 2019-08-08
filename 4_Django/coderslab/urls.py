@@ -31,5 +31,6 @@ urlpatterns = [
     path('set_session/', exercise_views.set_session),
     path('del_session/', exercise_views.del_session),
     path('del_session/', exercise_views.del_session),
-    path('edit_person/<int:id>', homework_views.edit_person)
+    path('edit_person/<int:id>', homework_views.edit_person),
+    path('edit_movie/<int:id>', homework_views.edit_movie)
 ]
