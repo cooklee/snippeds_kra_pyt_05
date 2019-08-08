@@ -1,0 +1,7 @@
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ person.id }}">
+    <input type="text" name="first_name" value="{{ person.first_name }}">
+    <input type="text" name="last_name" value="{{ person.last_name }}">
+    <button type="submit">zmień</button>
+</form>

@@ -30,4 +30,6 @@ urlpatterns = [
     path('show_session/', exercise_views.show_session),
     path('set_session/', exercise_views.set_session),
     path('del_session/', exercise_views.del_session),
+    path('del_session/', exercise_views.del_session),
+    path('edit_person/<int:id>', homework_views.edit_person)
 ]
