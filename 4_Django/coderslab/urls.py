@@ -21,7 +21,7 @@ from exercises import views as exercise_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    path("movie/", homework_views.show_movies),
+    path("movies/", homework_views.show_movies),
     path("movie_detail/<int:id>", homework_views.show_movie_detail),
     path("show_band/<int:id>", exercise_views.show_band),
     path("tm/", exercise_views.tabliczka_mnozenia),

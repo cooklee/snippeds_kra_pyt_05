@@ -2,8 +2,18 @@ from django.shortcuts import render
 from homework.models import Movie, PersonMovie, Person, Genre
 # Create your views here.
 
+def get_sort_by_key(id):
+    temp_dict = {'1': 'rating',
+     '2': '-rating',
+     '3': 'year'
+    }
+    return temp_dict[id]
+
 def show_movies(request):
-    movies = Movie.objects.all().order_by("year")
+    key = request.session.get('key', '3')
+    key = request.GET.get('key', key)
+    request.session['key'] = key
+    movies = Movie.objects.all().order_by(get_sort_by_key(key))
     return render(request, 'movies.html', {"movies":movies})
 
 def show_movie_detail(request, id):
